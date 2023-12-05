@@ -23,7 +23,8 @@ public class DataReader {
     private List<String> read(String resource) {
         Optional<URL> data = Optional.ofNullable(this.getClass().getClassLoader().getResource(resource));
         try {
-            return Files.readAllLines(Path.of(data.orElseThrow().getPath()));
+            String path = data.orElseThrow().getPath();
+            return Files.readAllLines(Path.of(path));
         } catch (IOException e) {
             throw new RuntimeException("Well, fuck...", e);
         }
