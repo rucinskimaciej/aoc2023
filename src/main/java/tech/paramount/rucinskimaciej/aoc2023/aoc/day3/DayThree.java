@@ -42,7 +42,7 @@ public class DayThree implements Day {
                 numEnd = col;
                 Optional<Point> symbolPoint = findSymbol(lines, row, numStart, numEnd);
                 if (symbolPoint.isPresent()) {
-                    partNumbers.add(Integer.parseInt(curLine.substring(numStart, numEnd)));
+                    partNumbers.add(Integer.parseInt(numberBuilder.toString()));
                 }
                 numberBuilder = null;
             }

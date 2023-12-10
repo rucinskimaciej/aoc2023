@@ -32,6 +32,6 @@ class DayThreeTest extends BaseDayTest {
     @Test
     void partNumbersSum() {
         assertThat(day.star1(sample)).isEqualTo(4361);
-//        assertThat(day.star1(data)).isEqualTo(4361);
+        assertThat(day.star1(data)).isEqualTo(517021);
     }
 }
