@@ -7,7 +7,7 @@ import tech.paramount.rucinskimaciej.aoc2023.aoc.utils.DataReader;
 import static tech.paramount.rucinskimaciej.aoc2023.aoc.utils.DataReader.DataType.DATA;
 import static tech.paramount.rucinskimaciej.aoc2023.aoc.utils.DataReader.DataType.SAMPLE;
 
-public abstract class BaseDayTest {
+public abstract class BaseDayTest<Day extends BaseDay> {
 
     protected List<String> sample;
     protected List<String> data;

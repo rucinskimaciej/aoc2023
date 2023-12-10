@@ -3,7 +3,7 @@ package tech.paramount.rucinskimaciej.aoc2023.aoc.day2;
 import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import tech.paramount.rucinskimaciej.aoc2023.aoc.Day;
+import tech.paramount.rucinskimaciej.aoc2023.aoc.BaseDay;
 import tech.paramount.rucinskimaciej.aoc2023.aoc.utils.DataReader;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -14,7 +14,7 @@ class DayTwoTest {
 
     private List<String> sample;
     private List<String> data;
-    private Day day;
+    private BaseDay day;
 
     @BeforeEach
     void loadData() {

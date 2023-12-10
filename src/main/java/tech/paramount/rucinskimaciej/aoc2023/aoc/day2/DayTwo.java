@@ -7,13 +7,13 @@ import java.util.Map;
 import java.util.NoSuchElementException;
 import java.util.function.BiFunction;
 import lombok.Getter;
-import tech.paramount.rucinskimaciej.aoc2023.aoc.Day;
+import tech.paramount.rucinskimaciej.aoc2023.aoc.BaseDay;
 
 import static tech.paramount.rucinskimaciej.aoc2023.aoc.day2.Cube.BLUE;
 import static tech.paramount.rucinskimaciej.aoc2023.aoc.day2.Cube.GREEN;
 import static tech.paramount.rucinskimaciej.aoc2023.aoc.day2.Cube.RED;
 
-public class DayTwo implements Day {
+public class DayTwo implements BaseDay {
 
     @Override
     public int star1(List<String> input) {

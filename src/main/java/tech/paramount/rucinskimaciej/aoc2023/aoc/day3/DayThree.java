@@ -4,25 +4,34 @@ import java.awt.Point;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-import tech.paramount.rucinskimaciej.aoc2023.aoc.Day;
+import tech.paramount.rucinskimaciej.aoc2023.aoc.BaseDay;
 
-public class DayThree implements Day {
+public class DayThree implements BaseDay {
     @Override
     public int star1(List<String> input) {
         var sum = 0;
         for (int i = 0; i < input.size(); i++) {
-            sum += enginePartsNumbersInLine(i, input).stream().mapToInt(Integer::intValue).sum();
+            sum += enginePartsInLine(i, input).stream().map(EnginePart::id).mapToInt(Integer::intValue).sum();
         }
         return sum;
     }
 
     @Override
     public int star2(List<String> input) {
-        return 0;
+        var sum = 0;
+
+        for (int y = 0; y < input.size(); y++) {
+            for (int x = 0; x < input.get(y).toCharArray().length; x++) {
+                if (input.get(y).charAt(x) == '*') {
+                    sum += gearRatio(new Point(x, y), input);
+                }
+            }
+        }
+        return sum;
     }
 
-    List<Integer> enginePartsNumbersInLine(int row, List<String> lines) {
-        List<Integer> partNumbers = new ArrayList<>();
+    List<EnginePart> enginePartsInLine(int row, List<String> lines) {
+        List<EnginePart> engineParts = new ArrayList<>();
         var curLine = lines.get(row);
         StringBuilder numberBuilder = null;
         var numStart = -1;
@@ -40,26 +49,27 @@ public class DayThree implements Day {
 
             if ((!isDigit || col + 1 == curLine.toCharArray().length) && numberBuilder != null) {
                 numEnd = col;
-                Optional<Point> symbolPoint = findSymbol(lines, row, numStart, numEnd);
+                Optional<Point> symbolPoint = findSymbolPosition(lines, row, numStart, numEnd);
                 if (symbolPoint.isPresent()) {
-                    partNumbers.add(Integer.parseInt(numberBuilder.toString()));
+                    var partNumber = Integer.parseInt(numberBuilder.toString());
+                    var point = symbolPoint.get();
+                    engineParts.add(new EnginePart(partNumber, lines.get(point.y).charAt(point.x), point));
                 }
                 numberBuilder = null;
             }
         }
 
-//        System.out.println("Row %s count: %s >>>>>> ".formatted(row, partNumbers.size()) + partNumbers);
-        return new ArrayList<>(partNumbers);
+        return engineParts;
     }
 
-    private Optional<Point> findSymbol(List<String> lines, int row, int numStart, int numEnd) {
+    private Optional<Point> findSymbolPosition(List<String> lines, int row, int numStart, int numEnd) {
         numStart = numStart - 1;
         for (int i = row - 1; i <= row + 1; i ++) {
             for (int j = numStart; j <= numEnd; j++) {
                 try {
                     var curChar = lines.get(i).charAt(j);
                     if (!Character.isDigit(curChar) && curChar != '.') {
-                        return Optional.of(new Point(i, j));
+                        return Optional.of(new Point(j, i));
                     }
                 } catch (IndexOutOfBoundsException e) {
                     // continue
@@ -69,4 +79,21 @@ public class DayThree implements Day {
         return Optional.empty();
     }
 
+    public int gearRatio(Point point, List<String> lines) {
+        List<EnginePart> engineGearPartsAtPoint = new ArrayList<>();
+        for (int row = 0; row < lines.size(); row++) {
+            enginePartsInLine(row, lines).stream()
+                    .filter(part -> part.symbol() == '*')
+                    .filter(part -> part.symbolPosition().equals(point))
+                    .forEach(engineGearPartsAtPoint::add);
+        }
+
+        if (engineGearPartsAtPoint.size() > 1) {
+            return engineGearPartsAtPoint.stream().map(EnginePart::id).reduce(1, (a, b) -> a * b);
+        }
+
+        return 0;
+    }
 }
+
+record EnginePart(int id, char symbol, Point symbolPosition) {}
