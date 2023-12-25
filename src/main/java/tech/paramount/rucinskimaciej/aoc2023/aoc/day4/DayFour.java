@@ -12,15 +12,15 @@ import tech.paramount.rucinskimaciej.aoc2023.aoc.BaseDay;
 public class DayFour implements BaseDay {
 
     @Override
-    public int star1(List<String> input) {
-        return input.stream()
+    public String star1(List<String> input) {
+        return "" + input.stream()
                 .mapToInt(this::scratchcardScore)
                 .sum();
     }
 
     @Override
-    public int star2(List<String> input) {
-        return 0;
+    public String star2(List<String> input) {
+        return "";
     }
 
     public int scratchcardScore(String cardInput) {

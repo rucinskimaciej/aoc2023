@@ -8,16 +8,16 @@ import tech.paramount.rucinskimaciej.aoc2023.aoc.BaseDay;
 
 public class DayThree implements BaseDay {
     @Override
-    public int star1(List<String> input) {
+    public String star1(List<String> input) {
         var sum = 0;
         for (int i = 0; i < input.size(); i++) {
             sum += enginePartsInLine(i, input).stream().map(EnginePart::id).mapToInt(Integer::intValue).sum();
         }
-        return sum;
+        return "" + sum;
     }
 
     @Override
-    public int star2(List<String> input) {
+    public String star2(List<String> input) {
         var sum = 0;
 
         for (int y = 0; y < input.size(); y++) {
@@ -27,7 +27,7 @@ public class DayThree implements BaseDay {
                 }
             }
         }
-        return sum;
+        return "" + sum;
     }
 
     List<EnginePart> enginePartsInLine(int row, List<String> lines) {

@@ -4,6 +4,6 @@ import java.util.List;
 
 public interface BaseDay {
 
-    int star1(List<String> input);
-    int star2(List<String> input);
+    String star1(List<String> input);
+    String star2(List<String> input);
 }

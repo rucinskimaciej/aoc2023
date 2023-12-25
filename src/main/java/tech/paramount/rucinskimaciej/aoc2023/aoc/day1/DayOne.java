@@ -5,8 +5,8 @@ import java.util.Map;
 import java.util.NoSuchElementException;
 
 public class DayOne {
-    public int star1(List<String> sample) {
-        return sample.stream().map(this::singleLineDigitMapper).mapToInt(Integer::intValue).sum();
+    public String star1(List<String> sample) {
+        return "" + sample.stream().map(this::singleLineDigitMapper).mapToInt(Integer::intValue).sum();
     }
 
     public int singleLineDigitMapper(String line) {
@@ -31,8 +31,8 @@ public class DayOne {
         }
     }
 
-    public int star2(List<String> sample) {
-        return sample.stream()
+    public String star2(List<String> sample) {
+        return "" + sample.stream()
                 .map(line -> findFirstNumber(line) + findLastNumber(line))
                 .mapToInt(Integer::parseInt)
                 .sum();

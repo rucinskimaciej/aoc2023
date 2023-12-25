@@ -16,8 +16,8 @@ import static tech.paramount.rucinskimaciej.aoc2023.aoc.day2.Cube.RED;
 public class DayTwo implements BaseDay {
 
     @Override
-    public int star1(List<String> input) {
-        return input.stream()
+    public String star1(List<String> input) {
+        return "" + input.stream()
                 .map(Game::new)
                 .filter(game -> game.isPossible(Map.of(RED, 12, GREEN, 13, BLUE, 14)))
                 .mapToInt(Game::getId)
@@ -25,10 +25,10 @@ public class DayTwo implements BaseDay {
     }
 
     @Override
-    public int star2(List<String> input) {
+    public String star2(List<String> input) {
         BiFunction<Game, Cube, Integer> maxInDraw =
                 (game, cube) -> game.getDraws().stream().map(draw -> draw.getOrDefault(cube, 0)).max(Integer::compareTo).orElseThrow();
-        return input.stream()
+        return "" + input.stream()
                 .map(Game::new)
                 .map(game -> {
                     var red = maxInDraw.apply(game, RED);
