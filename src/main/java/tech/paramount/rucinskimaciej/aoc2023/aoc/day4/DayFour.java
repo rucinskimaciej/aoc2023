@@ -45,7 +45,7 @@ public class DayFour implements BaseDay {
             }
             scratchcardWinnersMap.put(cardNumber, scratchcardWinnersCount);
         }
-        log.info("{} -> {}", cardNumber, scratchcardWinnersMap.get(cardNumber));
+        
         return scratchcardWinnersCount;
     }
 
