@@ -25,14 +25,14 @@ class DayTwoTest {
 
     @Test
     void sumPossibleGames() {
-        assertThat(day.star1(sample)).isEqualTo(8);
-        assertThat(day.star1(data)).isEqualTo(2085);
+        assertThat(day.star1(sample)).isEqualTo("8");
+        assertThat(day.star1(data)).isEqualTo("2085");
     }
 
     @Test
     void fewestCubesInGame() {
-        assertThat(day.star2(sample)).isEqualTo(2286);
-        assertThat(day.star2(data)).isEqualTo(79315);
+        assertThat(day.star2(sample)).isEqualTo("2286");
+        assertThat(day.star2(data)).isEqualTo("79315");
     }
 
 }

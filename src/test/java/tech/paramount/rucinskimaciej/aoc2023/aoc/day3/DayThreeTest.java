@@ -35,8 +35,8 @@ class DayThreeTest extends BaseDayTest<DayThree> {
 
     @Test
     void partNumbersSum() {
-        assertThat(day.star1(sample)).isEqualTo(4361);
-        assertThat(day.star1(data)).isEqualTo(517021);
+        assertThat(day.star1(sample)).isEqualTo("4361");
+        assertThat(day.star1(data)).isEqualTo("517021");
     }
 
     @Test
@@ -49,7 +49,7 @@ class DayThreeTest extends BaseDayTest<DayThree> {
 
     @Test
     void gearRatioSumTest() {
-        assertThat(day.star2(sample)).isEqualTo(467835);
-        assertThat(day.star2(data)).isEqualTo(467835);
+        assertThat(day.star2(sample)).isEqualTo("467835");
+        assertThat(day.star2(data)).isEqualTo("81296995");
     }
 }

@@ -32,13 +32,13 @@ class DayOneTest {
 
     @Test
     void sumCalibrationValues() {
-        assertThat(day1.star1(sample)).isEqualTo(351);
-        assertThat(day1.star1(data)).isEqualTo(54708);
+        assertThat(day1.star1(sample)).isEqualTo("351");
+        assertThat(day1.star1(data)).isEqualTo("54708");
     }
 
     @Test
     void sumCalibrationValuesFromNumberAndNumeral() {
-        assertThat(day1.star2(sample)).isEqualTo(423);
+        assertThat(day1.star2(sample)).isEqualTo("423");
     }
 
     @Test
@@ -63,8 +63,8 @@ class DayOneTest {
 
     @Test
     void sumCalibrationValuesStar2() {
-        assertThat(day1.star2(sample)).isEqualTo(423);
-        assertThat(day1.star2(data)).isEqualTo(54087);
+        assertThat(day1.star2(sample)).isEqualTo("423");
+        assertThat(day1.star2(data)).isEqualTo("54087");
     }
 
 }

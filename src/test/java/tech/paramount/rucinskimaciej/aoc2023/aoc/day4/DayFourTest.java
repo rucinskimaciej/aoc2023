@@ -28,8 +28,8 @@ class DayFourTest extends BaseDayTest<DayFour> {
 
     @Test
     void scratchcardWorthSum() {
-        assertThat(day.star1(sample)).isEqualTo(13);
-        assertThat(day.star1(data)).isEqualTo(21105);
+        assertThat(day.star1(sample)).isEqualTo("13");
+        assertThat(day.star1(data)).isEqualTo("21105");
     }
 
     @Test
@@ -41,9 +41,9 @@ class DayFourTest extends BaseDayTest<DayFour> {
         assertThat.apply(0).isEqualTo(1);
         assertThat.apply(1).isEqualTo(2);
         assertThat.apply(2).isEqualTo(4);
-//        assertThat.apply(3).isEqualTo(8);
-//        assertThat.apply(4).isEqualTo(14);
-//        assertThat.apply(5).isEqualTo(1);
+//        assertThat.apply(3).isEqualTo("8");
+//        assertThat.apply(4).isEqualTo("14");
+//        assertThat.apply(5).isEqualTo("1");
 
     }
 }
